@@ -1,40 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap">
+{% extends "template.html" %}
 
-    <title>WebCallejero</title>
-</head>
-<body>
-
-    <header>
-        <div class="container">
-          <div class="logo">
-            <img src="img/logo.png" alt="Logo" id="LOGO">
-          </div>
-          <nav>
-            <ul>
-              <li><a href="#">Inicio</a></li>
-              <li><a href="#">Acerca de</a></li>
-              <li><a href="#">Servicios</a></li>
-              <li><a href="#">Contacto</a></li>
-            </ul>
-          </nav>
+{% block content %}
+{% load static %}
+<!-- Son las cards de los productos -->
+<br>
+<br>
+<div class="container">
+    <p class="h1 ">Productos principales </p>
+</div>
+<br>
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100 text-center mb-3">
+                <img src="{% static 'img/completo1.jpg' %}" class="card-img-top img-fluid" alt="completo">
+                <div class="card-body">
+                    <h5 class="card-title">Completo Italiano</h5>
+                    <p class="card-text">Descripción</p>
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
         </div>
-      </header>
+        <div class="col">
+            <div class="card h-100 text-center mb-3">
+                <img src="{% static 'img/churrasco1.jpg' %}" class="card-img-top img-fluid" alt="churrasco">
+                <div class="card-body">
+                    <h5 class="card-title">Churrasco Italiano</h5>
+                    <p class="card-text">Descripción</p>
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 text-center mb-3">
+                <img src="{% static 'img/papasfritas1.jpg' %}" class="card-img-top img-fluid" alt="papasfritas">
+                <div class="card-body">
+                    <h5 class="card-title">Papas fritas</h5>
+                    <p class="card-text">Descripción</p>
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    
-
-      
-
-
-
-
-
-
-    
-</body>
-</html>
+{% endblock %}
