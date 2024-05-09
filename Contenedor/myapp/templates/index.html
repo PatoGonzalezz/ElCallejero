@@ -1,40 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap">
+{% extends "template.html" %}
 
-    <title>WebCallejero</title>
-</head>
-<body>
-
-    <header>
-        <div class="container">
-          <div class="logo">
-            <img src="img/logo.png" alt="Logo" id="LOGO">
-          </div>
-          <nav>
-            <ul>
-              <li><a href="#">Inicio</a></li>
-              <li><a href="#">Acerca de</a></li>
-              <li><a href="#">Servicios</a></li>
-              <li><a href="#">Contacto</a></li>
-            </ul>
-          </nav>
+{% block content %}
+{% load static %}
+<!-- Son las cards de los productos -->
+<!-- Fondo + frase -->
+    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home" style="background-image:url('static/img/fondo.jpg');">
+        <div class="w3-display-middle" style="white-space:nowrap;">
+            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">El MEJOR <span
+                    class="w3-hide-small">ENEMIGO</span> DEL HAMBRE</span>
         </div>
-      </header>
+    </div>
+<br>
+<div class="container">
+    <p class="h1">Productos principales </p>
+</div>
+<br>
+<!-- Cartas 1 -->
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100 text-center mb-3">
+                <img src="{% static 'img/completo1.jpg' %}" class="card-img-top img-fluid" alt="completo">
+                <div class="card-body">
+                    <h5 class="card-title">Completo Italiano</h5>
+                    <p class="card-text">Descripción</p>
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 text-center mb-3">
+                <img src="{% static 'img/churrasco1.jpg' %}" class="card-img-top img-fluid" alt="churrasco">
+                <div class="card-body">
+                    <h5 class="card-title">Churrasco Italiano</h5>
+                    <p class="card-text">Descripción</p>
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 text-center mb-3">
+                <img src="{% static 'img/papasfritas1.jpg' %}" class="card-img-top img-fluid" alt="papasfritas">
+                <div class="card-body">
+                    <h5 class="card-title">Papas fritas</h5>
+                    <p class="card-text">Descripción</p>
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<hr>
+<br>
+<!-- Promocional -->
+<div class="container">
+    <img src="{% static 'img/promocompleto.jpg' %}" class="mx-auto d-block h-100" alt="...">
+</div>
+<br>
+<hr>
+<br>
+<!-- Cartas 2 -->
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100 text-center mb-3">
+                <img src="{% static 'img/completo1.jpg' %}" class="card-img-top img-fluid" alt="completo">
+                <div class="card-body">
+                    <h5 class="card-title">Completo Italiano</h5>
+                    <p class="card-text">Descripción</p>
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 text-center mb-3">
+                <img src="{% static 'img/churrasco1.jpg' %}" class="card-img-top img-fluid" alt="churrasco">
+                <div class="card-body">
+                    <h5 class="card-title">Churrasco Italiano</h5>
+                    <p class="card-text">Descripción</p>
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 text-center mb-3">
+                <img src="{% static 'img/papasfritas1.jpg' %}" class="card-img-top img-fluid" alt="papasfritas">
+                <div class="card-body">
+                    <h5 class="card-title">Papas fritas</h5>
+                    <p class="card-text">Descripción</p>
+                </div>
+                <div class="card-footer d-flex justify-content-center">
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container (QUIENES SOMOS) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+    <h3 class="w3-center">¿Quienes somos?</h3>
+    <p class="w3-center"><em>El Callejero FoodTruck</em></p>
+    <p>El Callejero Foodtruck, con siete años de trayectoria, es un ícono de la comida rápida de calidad. Su compromiso
+        con el servicio al cliente se refleja en cada plato que
+        preparan, utilizando ingredientes frescos y recetas perfeccionadas.Su longevidad es prueba de la confianza y
+        lealtad de sus clientes, que regresan una y otra vez en busca
+        de esa experiencia culinaria auténtica y acogedora que solo El Callejero puede ofrecer.</p>
+</div>
+<script>
+    // Modal Image Gallery
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+    }
 
-    
 
-      
-
-
-
-
-
-
-    
-</body>
-</html>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function toggleFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>
+<br><br><br>
+{% endblock %}

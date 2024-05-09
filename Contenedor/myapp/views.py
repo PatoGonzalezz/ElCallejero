@@ -4,3 +4,12 @@ from django.http import HttpResponse
 
 def index(request):
     return render(request,'index.html')
+
+def template(request):
+    return render (request, 'template.html')
+
+def carrito(request):
+    return render (request, 'carrito.html')
+
+def login(request):
+    return render (request, 'login.html')
