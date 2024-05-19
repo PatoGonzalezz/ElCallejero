@@ -15,6 +15,10 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# settings.py
+MERCADO_PAGO_ACCESS_TOKEN = 'TEST-6675188053975494-051721-68ec1212c1a9885ae81b05bdde42cfda-331785855'
+MERCADO_PAGO_PUBLIC_KEY = 'TEST-83707795-a18c-43a8-9237-c166a20d2f11'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/

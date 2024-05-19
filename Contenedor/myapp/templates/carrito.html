@@ -1,22 +1,32 @@
-{% extends "template.html" %}
+<!-- carrito.html -->
 
-{% block content %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Carrito de Compras</title>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const mp = new MercadoPago('{{ public_key }}', {
+                locale: 'es-CL'
+            });
+
+            document.getElementById('checkout-btn').addEventListener('click', function () {
+                fetch('/crear-preferencia/')
+                    .then(response => response.json())
+                    .then(data => {
+                        mp.checkout({
+                            preference: {
+                                id: data.preference_id
+                            }
+                        }).open();
+                    });
+            });
+        });
+    </script>
+</head>
 <body>
-
-{% comment %} Aquí va el login {% endcomment %}
-
-
+    <h1>Carrito de Compras</h1>
+    <button id="checkout-btn">Pagar</button>
 </body>
 </html>
-
-
-
-{% endblock %}
-
-
-
-
-
-
-
