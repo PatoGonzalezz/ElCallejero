@@ -28,8 +28,55 @@
     </script>
 </head>
 <body>
-    <h1>Carrito de Compras</h1>
-    <button id="checkout-btn">Pagar</button>
+    <div class="alert" role="alert">
+        <div class="my-1 ">
+            <center>
+                <table class="table table-dark table-striped w-75">
+                    <tr>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">PRECIO</th>
+                        <th scope="col">CANTIDAD</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% if request.session.carrito.items %}
+                        {% for key, value in request.session.carrito.items %}
+                        <tr>
+                            <td>{{value.nombre}}</td>
+                            <td>{{value.acumulado}}</td>
+                            <td>{{value.cantidad}}
+                                <a href="{% url 'Add' value.producto_id %}" class="badge btn btn-dark badge-dark">+</a>
+                                <a href="{% url 'Sub' value.producto_id %}" class="badge btn btn-dark badge-dark">-</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td colspan="3">
+                                <div class="alert alert-danger text-center"> Sin Productos </div>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </center>
+            <hr>
+        </div>
+        <div class="row text-center">
+            <div class="col-6"><a href="{% url 'CLS' %}" class="btn btn-danger">Limpiar</a></div>
+        </div>
+    </div>
+
+
+
+
+
+<hr class="hr">
+<div class="text-center">
+    <h2>TOTAL DE LA COMPRA: ${{total_carrito}} <button class="btn btn-secondary py-2" id="checkout-btn" >IR A PAGAR</button></h2>
+</div>
+<hr class="hr">
 </body>
 </html>
+<br><br><br><br>
 {% endblock %}

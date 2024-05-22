@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración</title>
+    {% load static %}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'img/logo.png' %}">
+
+</head>
+<body>
+    <div class="text-center p-5 justify-content-center">
+        <h3 class="">Adminitración Callejero</h3>
+        <br>
+        <br>
+
+        <form class="d-flex" role="search" method="get">
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="buscar">
+            <button class="btn btn-outline-secondary buttonBus" type="submit">Buscar</button>
+        </form>
+        <br>
+        <table action="{% url 'lista_productos' %}" method="GET" class="table table-dark table-striped" >
+            {% if productos %}
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Stock</th>
+                    <th>Precio</th>
+                    <th>Opciones</th>
+                    
+                </tr>
+            </thead>
+                {% for tmp in productos %}
+                    <tr>
+                        <td>{{tmp.id_producto}}</td>
+                        <td>{{tmp.nombre}}</td>
+                        <td>{{tmp.stock}}</td>
+                        <td>{{tmp.precio}}</td>
+                        <td><a href="{% url 'delete_producto' pk=tmp.id_producto %}" class="btn btn-danger btn-sm">Eliminar</a>
+                            <a href="{% url 'editar_ProductFind' pk=tmp.id_producto %}" class="btn btn-info btn-sm">Modificar</a></td>
+                        
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+
+        <br><br><br>
+        <button type="button" class="btnRegister">
+            <a href="{% url 'addProd' %}">Agregar</a>
+        </button>
+    </div>
+</body>

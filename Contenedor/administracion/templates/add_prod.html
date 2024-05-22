@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración</title>
+    {% load static %}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'img/logo.png' %}">
+
+</head>
+<body>
+    <h3 class="text-center m-5">Datos del producto</h3>
+    <div class="registro  paginauelemento ">
+        <form action="{% url 'addProd' %}" method="POST" class="form-floating text-center p-5" id="regisForm" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" class="form-control" id="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <input type="text" name="descripcion" class="form-control" id="descripcion" required>
+            </div>
+            <div class="form-group">
+                <label for="imagen">Imagen:</label>
+                <input type="file" name="imagen" class="form-control" id="imagen" required>
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio:</label>
+                <input type="number" name="precio" class="form-control" id="precio" required>
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="number" name="stock" class="form-control" id="stock" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+        
+        <!-- {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert {{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %} -->
+    </div>
+    <br><br>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %}
+    {% for m in messages %}
+        <script>
+            Swal.fire({
+                "title": "Felicitaciones",
+                "text": "{{m}}",
+                "icon":"success"
+            })
+        </script>
+    {% endfor %}
+    {% endif %} 
+    <br>
+</body>

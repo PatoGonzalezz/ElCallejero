@@ -1,0 +1,187 @@
+
+body{
+    position: relative;
+    margin: 0;
+    min-height: 100vh;
+    background-image: linear-gradient(to right top, #ffffff, #eeeeee, #dedede, #cecece, #bebebe);
+}
+
+
+#logo{
+    width: 10vh;
+}
+
+#tituloherramientas{
+    margin: 5%;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+#carrusel{
+    margin-top: 3vh;
+}
+
+.navbar{
+    padding: 0;
+
+}
+
+#letraS{
+    font-family: sans-serif;
+    font-weight: bold;
+}
+#usuarioIm{
+    width: 10%;
+    padding: 0;
+}
+
+.row{
+    margin: 0;
+}
+
+footer{
+    background-color: #00ffff; 
+    position: absolute;
+    bottom:auto;
+    width: 100%;
+    margin-top: 5%;
+}
+
+#contacto{
+    width: 50%;
+    margin: auto;
+}
+#zona_contacto{
+    margin: 5%;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+#logoLogin{
+    width: 20vh;
+}
+
+#textLogo{
+    font-weight: bold;
+    text-align: center;
+}
+
+#login{
+    width: 50%;
+    margin: auto;
+}
+
+.loginS{
+    margin: auto;
+}
+
+#btnSesion{
+    margin-bottom: 5vh;
+}
+#bienvenidoLogin{
+    font-family: sans-serif;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+#qsP{
+    margin: 2vh;
+}
+
+.cardS{
+    font-size: larger;
+}
+
+.cardS2{
+    font-weight:bolder;
+    font-size: xx-large;
+    padding-top: 5%;
+
+}
+
+.nuestrosValores{
+    padding-top: 8vh;
+}
+
+.registro{
+    align-items: center;
+    margin: auto;
+    width: 50%;
+    height: 100vh;
+}
+
+#comentario{
+    height: 100px;
+}
+
+.error{
+    color: #ff0000;
+}
+.errorComment{
+    color: #ff0000;
+}
+
+.errorNombre{
+    color: #ff0000;
+}
+
+#validaNombre{
+    color: #ff0000;
+}
+#validaEmail{
+    color: #ff0000;
+}
+#validapass{
+    color:  #ff0000;
+}
+
+#regisForm{
+    background-color: whitesmoke;
+    padding: 3vh;
+    border-radius: 3%;
+    box-shadow:10px 10px  #48529944;
+}
+.btnRegister{
+    background-color: transparent;
+    font-weight: bold;
+    color: #444;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    border: 2px solid #eee;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: all 1s ease;
+    box-shadow: .5rem .5rem 1rem #ccc,
+    -.5rem -.5rem 1rem #fff;
+    text-decoration: none;
+}
+.btnRegister:hover{
+    box-shadow: .5rem .5rem 1rem #fff,
+    -.5rem -.5rem 1rem #ccc;
+}
+.btnRegister:active{
+    box-shadow:inset .2rem .2rem 1rem #fff,
+    inset -.2rem -.2rem 1rem #ccc;
+}
+
+@keyframes aparece-izquierda {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+.paginauelemento {
+    animation: aparece-izquierda ease 1s backwards;
+}

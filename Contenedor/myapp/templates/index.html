@@ -17,42 +17,21 @@
 <!-- Cartas 1 -->
 <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for tmp in productos %}
         <div class="col">
             <div class="card h-100 text-center mb-3">
-                <img src="{% static 'img/completo1.jpg' %}" class="card-img-top img-fluid" alt="completo">
                 <div class="card-body">
-                    <h5 class="card-title">Completo Italiano</h5>
-                    <p class="card-text">Descripción</p>
+                    <img class="card-img-top" src="{{tmp.foto_producto.url}}">
+                    <h2 class="py-2">{{tmp.nombre}}</h2>
+                    <h3 class="py-2">{{tmp.descripcion}}</h3>
+                    <h3 class="py-2">${{tmp.precio}}</h3>
                 </div>
                 <div class="card-footer d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="{% url 'Add' pk=tmp.id_producto %}" class="btn btn-primary">Agregar al carrito</a>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card h-100 text-center mb-3">
-                <img src="{% static 'img/churrasco1.jpg' %}" class="card-img-top img-fluid" alt="churrasco">
-                <div class="card-body">
-                    <h5 class="card-title">Churrasco Italiano</h5>
-                    <p class="card-text">Descripción</p>
-                </div>
-                <div class="card-footer d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100 text-center mb-3">
-                <img src="{% static 'img/papasfritas1.jpg' %}" class="card-img-top img-fluid" alt="papasfritas">
-                <div class="card-body">
-                    <h5 class="card-title">Papas fritas</h5>
-                    <p class="card-text">Descripción</p>
-                </div>
-                <div class="card-footer d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 <br>
@@ -65,47 +44,6 @@
 <br>
 <hr>
 <br>
-<!-- Cartas 2 -->
-<div class="container">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-            <div class="card h-100 text-center mb-3">
-                <img src="{% static 'img/completo1.jpg' %}" class="card-img-top img-fluid" alt="completo">
-                <div class="card-body">
-                    <h5 class="card-title">Completo Italiano</h5>
-                    <p class="card-text">Descripción</p>
-                </div>
-                <div class="card-footer d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100 text-center mb-3">
-                <img src="{% static 'img/churrasco1.jpg' %}" class="card-img-top img-fluid" alt="churrasco">
-                <div class="card-body">
-                    <h5 class="card-title">Churrasco Italiano</h5>
-                    <p class="card-text">Descripción</p>
-                </div>
-                <div class="card-footer d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100 text-center mb-3">
-                <img src="{% static 'img/papasfritas1.jpg' %}" class="card-img-top img-fluid" alt="papasfritas">
-                <div class="card-body">
-                    <h5 class="card-title">Papas fritas</h5>
-                    <p class="card-text">Descripción</p>
-                </div>
-                <div class="card-footer d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Container (QUIENES SOMOS) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
     <h3 class="w3-center">¿Quienes somos?</h3>
