@@ -50,6 +50,16 @@
                             </td>
                         </tr>
                         {% endfor %}
+                        <div class="text-center">
+                            <form action="{% url 'AddPedido' %}" method="POST" class="form-floating text-center p-5" id="regisForm" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {% for key, value in request.session.carrito.items %}
+                                <input type="hidden" value="{{value.nombre}}" name="descripcion" class="form-control" id="descripcion" required>
+                                {% endfor %}
+                                <input type="hidden" value="{{total_carrito}}" name="precio_total" class="form-control" id="precio_total" required>
+                                <h2>TOTAL DE LA COMPRA: ${{total_carrito}} <button class="btn btn-secondary py-2" type="submit" id="checkout-btn">IR A PAGAR</button></h2>
+                            </form>
+                        </div>
                         {% else %}
                         <tr>
                             <td colspan="3">
@@ -67,14 +77,7 @@
         </div>
     </div>
 
-
-
-
-
 <hr class="hr">
-<div class="text-center">
-    <h2>TOTAL DE LA COMPRA: ${{total_carrito}} <button class="btn btn-secondary py-2" id="checkout-btn" >IR A PAGAR</button></h2>
-</div>
 <hr class="hr">
 </body>
 </html>

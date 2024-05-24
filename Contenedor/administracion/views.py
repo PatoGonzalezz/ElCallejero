@@ -49,10 +49,10 @@ def lista_productos(request):
 def agregar_productos(request):
     if request.method == "POST":
         nombre_prod = request.POST.get("nombre")
-        desc = request.POST.get("descripcion")
-        imagen = request.FILES.get("imagen")
+        desc        = request.POST.get("descripcion")
+        imagen      = request.FILES.get("imagen")
         precio_prod = request.POST.get("precio")
-        stock_prod = request.POST.get("stock")
+        stock_prod  = request.POST.get("stock")
 
         if not nombre_prod or not desc or not imagen or not precio_prod or not stock_prod:
             messages.error(request, "Todos los campos son requeridos.")
@@ -60,11 +60,11 @@ def agregar_productos(request):
 
         try:
             objProducto = Producto.objects.create(
-                nombre=nombre_prod,
-                descripcion=desc,
-                foto_producto=imagen,
-                precio=precio_prod,
-                stock=stock_prod
+                nombre          = nombre_prod,
+                descripcion     = desc,
+                foto_producto   = imagen,
+                precio          = precio_prod,
+                stock           = stock_prod
             )
             objProducto.save()
             messages.success(request, "Producto Agregado")

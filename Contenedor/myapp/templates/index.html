@@ -2,6 +2,12 @@
 
 {% block content %}
 {% load static %}
+{% comment %} información de API {% endcomment %}
+<div class="container py-3">
+    <p>Clima Actual en Illapel</p>
+    <p>Temperatura: {{ temperatura }}°C</p>
+    <p>Humedad: {{ humedad }}%</p>
+</div>
 <!-- Son las cards de los productos -->
 <!-- Fondo + frase -->
     <div class="bgimg-1 w3-display-container w3-opacity-min" id="home" style="background-image:url('static/img/fondo.jpg');">
@@ -38,8 +44,11 @@
 <hr>
 <br>
 <!-- Promocional -->
-<div class="container">
-    <img src="{% static 'img/promocompleto.jpg' %}" class="img-fluid mx-auto d-block" alt="...">
+<div class="container text-center">
+    <div class="row row-cols-2">
+        <div class="col"><img src="{% static 'img/catalogo2.jpg' %}" class="img-fluid" alt="...">        </div>
+        <div class="col"><img src="{% static 'img/catalogo1.jpg' %}" class="img-fluid" alt="..."></div>
+    </div>
 </div>
 <br>
 <hr>

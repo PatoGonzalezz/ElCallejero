@@ -13,5 +13,6 @@ urlpatterns = [
     path('eliminar/<str:pk>/', views.eliminar_producto, name="Del"),
     path('restar/<str:pk>/', views.restar_producto, name="Sub"),
     path('limpiar/', views.limpiar_carrito, name="CLS"),
+    path('pedido/', views.agregar_pedido, name="AddPedido"),
 
 ]
