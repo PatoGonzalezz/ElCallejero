@@ -16,27 +16,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+
     <title>WebCallejero</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="{% static 'img/logo.png' %} " alt="Logo" id="LOGO">
-            </div>
-            <nav>
-                {% comment %} Acá iría el usuario {% endcomment %}
-                <ul>
-                    <li><a href="{% url "login" %}">Log in</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="{% url "carrito" %}">Carrito</a></li>
-                </ul>
-            </nav>
-        </div>
+    {% comment %} Header {% endcomment %}
+    <header class="bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark container">
+            <a class="navbar-brand me-3" href="{% url "index" %}">
+                <img src="{% static 'img/logo.png' %}" alt="Logo" id="LOGO" class="img-fluid m-3" style="max-height: 60px;">
+            </a>
+            <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <nav class="navbar navbar-expand-md navbar-dark container">
+                        <li class="nav-item m-3"><a class="navbar-brand" href="#" role="button" data-bs-toggle="dropdown"></li>
+                            {% if user.is_authenticated %}
+                            <li class="nav-item m-3"><p class=" navbar-brand">Bienvenido, {{user.username}} </p> </li> 
+                            {% else %}
+                            <li class="nav-item m-3"><a href="{% url 'login' %}" class="navbar-brand">Ingresar</a></li> 
+                            {% endif %}
+                        </a>
+                        <div class="dropdown-menu" >
+                            <li class="nav-item m-3"><a class="dropdown-item navbar-brand href="{% url 'logout' %}">Cerrar sesión</a></li>
+                        </div>
+                        {% if user.is_authenticated %}
+                                <li class="nav-item m-3"><a href="{% url 'lista_productos' %}" class="navbar-brand">
+                                    Gestionar Productos
+                                </a></li>
+                        {% endif %}
+                        <li class="nav-item m-3"><a class="nav-link" href="{% url 'carrito' %}">Carrito</a></li>
+                        <li class="nav-item m-3"><a href="https://wa.me/56967062665" target="_blank"><img src="{% static 'img/logos--whatsapp-icon.png' %}" alt="" style="width: 5vh; height: 5vh;"></a></li>
+                </nav>                    
 
+                </ul>
+            </div>
+        </nav>
+        
     </header>
+
     {% block content %}
     <style>
         body,
@@ -181,9 +204,18 @@
             }
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
 </body>
 
 

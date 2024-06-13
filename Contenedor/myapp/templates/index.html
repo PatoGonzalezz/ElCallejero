@@ -2,12 +2,17 @@
 
 {% block content %}
 {% load static %}
+{% comment %} información de API {% endcomment %}
+<div class="container py-3">
+    <p>Clima Actual en Illapel</p>
+    <p>Temperatura: {{ temperatura }}°C</p>
+    <p>Humedad: {{ humedad }}%</p>
+</div>
 <!-- Son las cards de los productos -->
 <!-- Fondo + frase -->
     <div class="bgimg-1 w3-display-container w3-opacity-min" id="home" style="background-image:url('static/img/fondo.jpg');">
-        <div class="w3-display-middle" style="white-space:nowrap;">
-            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">El MEJOR <span
-                    class="w3-hide-small">ENEMIGO</span> DEL HAMBRE</span>
+        <div class="w3-display-middle" style="white-space:initial;">
+            <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">El MEJOR ENEMIGO DEL HAMBRE</span>
         </div>
     </div>
 <br>
@@ -18,95 +23,36 @@
 <!-- Cartas 1 -->
 <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for tmp in productos %}
         <div class="col">
             <div class="card h-100 text-center mb-3">
-                <img src="{% static 'img/completo1.jpg' %}" class="card-img-top img-fluid" alt="completo">
                 <div class="card-body">
-                    <h5 class="card-title">Completo Italiano</h5>
-                    <p class="card-text">Descripción</p>
+                    <img class="card-img-top" src="{{tmp.foto_producto.url}}">
+                    <h2 class="py-2">{{tmp.nombre}}</h2>
+                    <h3 class="py-2">{{tmp.descripcion}}</h3>
+                    <h3 class="py-2">${{tmp.precio}}</h3>
                 </div>
                 <div class="card-footer d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <a href="{% url 'Add' pk=tmp.id_producto %}" class="btn btn-primary">Agregar al carrito</a>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card h-100 text-center mb-3">
-                <img src="{% static 'img/churrasco1.jpg' %}" class="card-img-top img-fluid" alt="churrasco">
-                <div class="card-body">
-                    <h5 class="card-title">Churrasco Italiano</h5>
-                    <p class="card-text">Descripción</p>
-                </div>
-                <div class="card-footer d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100 text-center mb-3">
-                <img src="{% static 'img/papasfritas1.jpg' %}" class="card-img-top img-fluid" alt="papasfritas">
-                <div class="card-body">
-                    <h5 class="card-title">Papas fritas</h5>
-                    <p class="card-text">Descripción</p>
-                </div>
-                <div class="card-footer d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 <br>
 <hr>
 <br>
 <!-- Promocional -->
-<div class="container">
-    <img src="{% static 'img/promocompleto.jpg' %}" class="mx-auto d-block h-100" alt="...">
+<div class="container text-center">
+    <div class="row row-cols-2">
+        <div class="col"><img src="{% static 'img/catalogo2.jpg' %}" class="img-fluid" alt="...">        </div>
+        <div class="col"><img src="{% static 'img/catalogo1.jpg' %}" class="img-fluid" alt="..."></div>
+    </div>
 </div>
 <br>
 <hr>
 <br>
-<!-- Cartas 2 -->
-<div class="container">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-            <div class="card h-100 text-center mb-3">
-                <img src="{% static 'img/completo1.jpg' %}" class="card-img-top img-fluid" alt="completo">
-                <div class="card-body">
-                    <h5 class="card-title">Completo Italiano</h5>
-                    <p class="card-text">Descripción</p>
-                </div>
-                <div class="card-footer d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100 text-center mb-3">
-                <img src="{% static 'img/churrasco1.jpg' %}" class="card-img-top img-fluid" alt="churrasco">
-                <div class="card-body">
-                    <h5 class="card-title">Churrasco Italiano</h5>
-                    <p class="card-text">Descripción</p>
-                </div>
-                <div class="card-footer d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100 text-center mb-3">
-                <img src="{% static 'img/papasfritas1.jpg' %}" class="card-img-top img-fluid" alt="papasfritas">
-                <div class="card-body">
-                    <h5 class="card-title">Papas fritas</h5>
-                    <p class="card-text">Descripción</p>
-                </div>
-                <div class="card-footer d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Container (QUIENES SOMOS) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
     <h3 class="w3-center">¿Quienes somos?</h3>
