@@ -3,41 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pedidos El Callejero</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
 </head>
 <body>
+    <nav>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-outline-success" >
+                <a href="{% url 'index' %}" class="">Ir al inicio</a>
+            </button>
+        </div>
+    </nav>
     <div class="text-center p-5 justify-content-center">
-        <h3 class="">Adminitración Callejero</h3>
+        <h3 class="">Pedidos El Callejero</h3>
         <br>
         <br>
-
-        <form class="d-flex" role="search" method="get">
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="buscar">
-            <button class="btn btn-outline-secondary buttonBus" type="submit">Buscar</button>
-        </form>
+        <div class="container">
+            <form class="d-flex" role="search" method="get">
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="buscar">
+                <button class="btn btn-outline-secondary buttonBus" type="submit">Buscar</button>
+            </form>
+        </div>
         <br>
-        <table action="{% url 'lista_pedidos' %}" method="GET" class="table table-dark table-striped" >
-            {% if pedidos %}
-            <thead>
-                <tr>
-                    <th>ID Pedido</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>Estado</th>
-                    <th>Actualizar</th>
-                    
-                </tr>
-            </thead>
-                {% for tmp in pedidos %}
+        <div class="container">
+            <table action="{% url 'lista_pedidos' %}" method="GET" class="table table-striped table-hover" >
+                {% if pedidos %}
+                <thead>
                     <tr>
-                        <td>{{tmp.id_pedido}}</td>
-                        <td>{{tmp.descripcion}}</td>
-                        <td>{{tmp.precio_total}}</td>
-                        <td>{{tmp.id_estado}}</td>
+                        <th>ID Pedido</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Estado</th>
+                        <th>Actualizar</th>
+                        
                     </tr>
-                {% endfor %}
-            {% endif %}
-        </table>
+                </thead>
+                    {% for tmp in pedidos %}
+                        <tr>
+                            <td>{{tmp.id_pedido}}</td>
+                            <td>{{tmp.descripcion}}</td>
+                            <td>{{tmp.precio_total}}</td>
+                            <td>{{tmp.id_estado}}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </table>
+        </div>
     </div>
 </body>
 </html>
